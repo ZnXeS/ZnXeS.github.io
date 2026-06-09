@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>关卡设计与核心机制</title>
+  <style>
+body{font-family:"微软雅黑",sans-serif;font-size:14px;color:#333;background:#f5f6fa;margin:0;padding:0}
+.container{width:90%;margin:0 auto;padding:2%}
+a{text-decoration:none}
+</style>
+</head>
+<body>
+
+<a href="index.html" style="position:fixed;right:5%;bottom:5%;"><font size="3">← 返回首页</font></a>
+  <p><font size="2" color="#999">2026年5月18日</font></p>
+  <h1><font size="5" color="#333">关卡设计与核心机制</font></h1>
+  <br>
+  <h2><font size="4" color="#333">一、类银河恶魔城的地图哲学</font></h2>
+  <p style="text-indent:2em;"><font size="3">类银河恶魔城游戏最核心的特征就是互联互通的地图结构。整个游戏世界是一个巨大的迷宫，不同区域之间由捷径、电梯和单向通道连接。玩家在探索中不断获得新能力，用这些能力回到之前无法到达的地方，解锁新的区域。</font></p>
+  <p style="text-indent:2em;"><font size="3">我在设计地图时遵循几个原则：每个区域都有一个明确的主题和视觉风格；玩家初次进入时会看到许多"够不着"的地方，激发探索欲；关键路径上用明显的视觉提示引导玩家前进。这些设计思路我都通过Claude Code来细化并转化为可实现的方案。</font></p>
+  <br>
+  <h2><font size="4" color="#333">二、Godot TileMap关卡搭建</font></h2>
+  <p style="text-indent:2em;"><font size="3">Godot的TileMap节点是搭建2D关卡的核心工具。我创建了多个TileMap层：Ground层负责地面和墙壁，Platform层负责可穿越的平台，Decoration层放置背景装饰物。通过AI辅助编写TileMap的自动拼接规则，相邻的瓦片会自动选择合适变体，效率提升非常明显。</font></p>
+  <br>
+  <h2><font size="4" color="#333">三、能力解锁系统</font></h2>
+  <p style="text-indent:2em;"><font size="3">能力解锁是类银河恶魔城的灵魂。我目前设计了四种核心能力：二段跳让玩家到达更高的平台，冲刺可以穿越狭窄通道，攀墙能爬上垂直墙面，滑翔则减缓下落速度探索更大范围。在Claude Code的帮助下，每个能力的GDScript代码从设计到调试都非常高效。</font></p>
+  <br>
+  <h2><font size="4" color="#333">四、摄像机系统</font></h2>
+  <p style="text-indent:2em;"><font size="3">摄像机使用Godot的Camera2D节点，通过设置limit边界来限制范围，确保玩家不会看到地图边缘之外的空白区域。在不同区域之间使用平滑插值过渡。AI帮我优化了摄像机跟随的缓冲区域，让角色移动时画面更加流畅自然。</font></p>
+  <br>
+  <a href="text1.html"><font size="3" color="#2563eb">← 返回文章列表</font></a>
+</body>
+</html>
