@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <title>技术实现与踩坑记录</title>
+  <style>
+body{font-family:"微软雅黑",sans-serif;font-size:14px;color:#333;background:#f5f6fa;margin:0;padding:0}
+.container{width:90%;margin:0 auto;padding:2%}
+a{text-decoration:none}
+</style>
+</head>
+<body>
+
+<a href="index.html" style="position:fixed;right:5%;bottom:5%;"><font size="3">← 返回首页</font></a>
+  <p><font size="2" color="#999">2026年5月10日</font></p>
+  <h1><font size="5" color="#333">技术实现与踩坑记录</font></h1>
+  <br>
+  <h2><font size="4" color="#333">一、角色控制器——从零到可玩</font></h2>
+  <p style="text-indent:2em;"><font size="3">Godot的CharacterBody2D节点天生适合做2D平台角色。我用Claude Code生成了基础移动脚本，通过move_and_slide()处理移动和碰撞。但初版有问题：加速太突兀、在斜坡上会滑下来。AI建议用lerp函数平滑过渡速度，并调节加速度参数，很快就解决了。</font></p>
+  <br>
+  <h2><font size="4" color="#333">二、地面检测的实现</font></h2>
+  <p style="text-indent:2em;"><font size="3">判断角色是否在地面上看似简单，实则坑不少。最初用is_on_floor()检测，但角色站在平台边缘时检测不准。通过Claude Code分析后，改用RayCast2D在角色底部两侧各加一条射线进行双重检测，大幅提高了判定准确性。</font></p>
+  <br>
+  <h2><font size="4" color="#333">三、AI辅助调试的体验</font></h2>
+  <p style="text-indent:2em;"><font size="3">整个开发过程中，Claude Code扮演了导师的角色。遇到角色穿墙、动画切换卡顿、碰撞体偏移等问题时，只需把相关代码和报错信息发给AI，它就能快速分析原因并给出修复代码。这种实时互动式的学习效率远超看视频教程。</font></p>
+  <br>
+  <h2><font size="4" color="#333">四、性能优化心得</font></h2>
+  <p style="text-indent:2em;"><font size="3">Godot的轻量特性让性能优化相对轻松。AI帮我排查了帧率下降的问题：每帧在_process中重复查找节点导致性能损耗。解决方案是用@onready变量在场景加载时缓存引用，以及使用对象池管理敌人生成。优化后帧率稳定在60fps。</font></p>
+  <br>
+  <a href="text1.html"><font size="3" color="#2563eb">← 返回文章列表</font></a>
+</body>
+</html>
